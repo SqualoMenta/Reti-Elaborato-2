@@ -15,9 +15,7 @@ Questa classe, contenuta nel file `node.py`, rappresenta un nodo del network, in
 
 Il costruttore prende in input l'identificativo univoco `name` del nodo.
 
-```python
-update_routing_table(self, neighbors)
-```
+### `update_routing_table(self, neighbors)`
 
 Il metodo principale dell'intera classe, questo metodo permette ai nodi di aggiornare le proprie informazioni sulla base delle informazioni in possesso dei nodi vicini. oltre a questo permette alla rete di capire se si è giunti alla convergenza grazie al valore di ritorno.
 
@@ -36,9 +34,7 @@ for neighbor, (cost_to_neighbor, neighbor_table) in neighbors.items():
 return updated
 ```
 
-```python
-print_routing_table(self)
-```
+### `print_routing_table(self)`
 
 Metodo molto semplice che stampa la tabella di routing del nodo sul terminale.
 
@@ -53,15 +49,11 @@ Questa classe rappresenta la rete stessa, con tutti router collegati.
 
 #### MetodiNetwork
 
-```python
-add_node_after(self, node_name)
-```
+### `add_node_after(self, node_name)`
 
 Il metodo aggiunge un nodo al Network e prende in input l'identificativo del nodo, in più crea l'arco di collegamento del nodo con se stesso con peso 0. Questo metodo funziona anche se un nodo viene aggiunto dopo che la rete è già stata creata come se venisse aggiunto un altro router al network.
 
-```python
-add_edge(self, node1, node2, weight) and add_edge_and_update(self, node1, node2, weight)
-```
+### `add_edge(self, node1, node2, weight) and add_edge_and_update(self, node1, node2, weight)`
 
 Questi due metodi permettono semplicemente di aggiungere un collegamento tra 2 nodi, la differenza è che il secondo metodo fa anche partire la simulazione immediatamente dopo aggiornando le routing table. Il metodo `add_edge` prende in input 2 id dei nodi e il peso dell'arco poi crea, o aggiorna, l'arco con le nuove caratteristiche e modifica le routing table in modo che i nodi coinvolti usino il nuovo arco, per aggiornare nuovamente le routing table sarà necessario rifare la simulazione dopo aver chiamato add_edge (anche per non usare il nuovo arco nel caso sia un peggioramento). `add_edge_and_update` si limita a rifare la simulazione dopo aver aggiunto un arco.
 
@@ -73,21 +65,15 @@ self.nodes[node1].routing_table[node2] = (weight, node2)
 self.nodes[node2].routing_table[node1] = (weight, node1)
 ```
 
-```python
-remove_node_and_update(self, node_name)
-```
+### `remove_node_and_update(self, node_name)`
 
 Preso in input l'id di un nodo lo rimuove dalla rete e aggiorna le tabelle di routing di conseguenza, simula un guasto a un router.
 
-```python
-remove_edge_and_update(self, node1, node2)
-```
+### `remove_edge_and_update(self, node1, node2)`
 
 Questo metodo rimuove un arco dalla rete e aggiorna le routing table di conseguenza, simulando un problema sulla linea.
 
-```python
-simulate(self)
-```
+### `simulate(self)`
 
 Algoritmo al centro del calcolo delle distanze dei router. Questo algoritmo si compone di due cicli principali, il primo procede fin tanto che non si raggiunge la convergenza (la convergenza in particolare è sempre raggiunta all'iterazione precedente all'ultima eseguita), ma questo criterio può cambiare in reti più grandi, rischiando però di non scrivere nella routing table dei nodi tutti i nodi raggiungibili. Qualora si voglia cambiare questo criterio va comunque considerato che la convergenza è matematicamente sempre raggiunta in al più n-2 iterazioni.
 
