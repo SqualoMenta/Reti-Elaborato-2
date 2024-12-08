@@ -127,4 +127,4 @@ E 4 o 5 pulsanti:
 - `add_node_button` che permette di aggiungere dei nodi senza alcun collegamento se non a loro stessi.
 - `remove_edge_button` permette di rimuovere un arco dalla rete, simulando ad esempio un problema di linea.
 - `remove_node_button` permette di rimuovere un nodo simulando un problema ad esempio a un router.
-- `simulate_button` pulsante per simulare CV. **Attualmente NON presente nella gui** può essere facilmente introdotto seguendo le istruzioni descritte sopra, questo tasto pur essendo sempre e comunque funzionante non ha alcuno scopo se `add_edge_button` chiama il metodo `add_edge_and_update` poiché allo stato attuale cliccare su qualunque pulsante a eccezione di `add_node_button` fa già partire la simulazione del CV.
+- `simulate_button` pulsante per simulare il routing. **Attualmente NON presente nella gui** può essere facilmente introdotto seguendo le istruzioni descritte sopra, questo tasto pur essendo sempre e comunque funzionante non ha alcuno scopo se `add_edge_button` chiama il metodo `add_edge_and_update` poiché allo stato attuale cliccare su qualunque pulsante a eccezione di `add_node_button` fa già partire la simulazione.
