@@ -38,8 +38,8 @@ class NetworkGUI:
         #self.initialize_button = tk.Button(self.command_frame, text="Testa", command=self.initialize_network)
 
         #Pulsante per far simulare il routing convergence
-        self.simulate_button = tk.Button(self.command_frame, text="Simula", command=self.simulate_network, bg=btn_color, fg=btn_fg_color, font=("Helvetica", 10, "bold"))
-        self.simulate_button.grid(row=0, column=2, padx=5, pady=5)
+        #self.simulate_button = tk.Button(self.command_frame, text="Simula", command=self.simulate_network, bg=btn_color, fg=btn_fg_color, font=("Helvetica", 10, "bold"))
+        #self.simulate_button.grid(row=0, column=2, padx=5, pady=5)
 
         # Pulsanti principali
         self.add_edge_button = tk.Button(self.command_frame, text="Add Edge", command=self.add_edge, bg=btn_color, fg=btn_fg_color, font=("Helvetica", 10, "bold"))
@@ -93,7 +93,7 @@ class NetworkGUI:
 
         if node1 and node2 and weight:
             try:
-                self.network.add_edge(node1, node2, weight) #possibile sostituire con add_edge se attivo il taso simulate
+                self.network.add_edge_and_update(node1, node2, weight) #possibile sostituire con add_edge se attivo il taso simulate
                 self.update_routing_table_display()
             except KeyError as e:
                 messagebox.showerror("Errore", f"Nodo non trovato: {e}")
